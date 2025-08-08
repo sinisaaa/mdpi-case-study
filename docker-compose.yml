@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony_app
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: mysql://symfony:symfony@mysql:3306/symfony
+    command: php -S 0.0.0.0:8000 -t public
+
+  mysql:
+    image: mysql:8.0.42
+    container_name: symfony_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2
+    container_name: symfony_phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: symfony_db
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db_data:
