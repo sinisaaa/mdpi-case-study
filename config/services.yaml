@@ -20,8 +20,4 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Controller\ErrorController:
-        tags: ['controller.service_arguments']
-
 framework:
-    error_controller: App\Controller\ErrorController::show
