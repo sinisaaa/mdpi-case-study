@@ -1,0 +1,18 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Case Study
+            description: Case Study - Backend Engineering (PHP) app!
+            version: 1.0.0
+        components:
+          securitySchemes:
+            ApiKeyAuth:
+              type: apiKey
+              in: header
+              name: X-API-KEY
+              description: ApiKey must be added into database first!
+        security:
+          - ApiKeyAuth: [ ]
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/(?!doc$)(?!$)

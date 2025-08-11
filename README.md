@@ -1,5 +1,16 @@
-# Case Study: Backend Engineering (PHP)
+# How to run the case study
 
+
+> **Before using the app, you must create an API key in the database.**  
+> All API requests require a valid API key for authentication.
+
+> **API documentation is available at [http://localhost:8000/doc](http://localhost:8000/doc).**
+
+> **Tests can be run by calling: ./vendor/bin/phpunit tests**
+
+
+> **Note:** The documentation was not clear about the `title` field in the Author entity. I decided to follow the rules and make it required, with a default value of `unknown`.
+# Case Study: Backend Engineering (PHP)
 ---
 
 ⚠️ PLEASE DO NOT FORK THIS REPO AS OTHERS MAY SEE YOUR CODE. INSTEAD YOU SHOULD
